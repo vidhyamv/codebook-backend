@@ -3,13 +3,12 @@ import pkg from "json-server";
 const { create, router, defaults } = pkg;
 import auth from "json-server-auth";
 
-const app = create(); // use json-server create
-const dbRouter = router("data/db.json");
-const middlewares = defaults();
+const app = create(); // json-server instance
 
+const dbRouter = router("data/db.json");
 app.db = dbRouter.db;
 
-app.use(middlewares);
+app.use(defaults());
 app.use(auth);
 app.use(dbRouter);
 
