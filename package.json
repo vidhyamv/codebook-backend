@@ -1,0 +1,18 @@
+{
+  "name": "codebook-main",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0"
+  }
+}
