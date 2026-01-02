@@ -1,6 +1,6 @@
 {
-    "/products*": "/444/",
-    "/featured_products*": "/444/",
-    "/orders*": "/660/",
-    "/users*": "/600/"
+    "/products*": "/products",
+    "/featured_products*": "/featured_products",
+    "/orders*": "/orders",
+    "/users*": "/users"
 }
