@@ -7,7 +7,7 @@
   "main": "index.js",
   "type": "module",
   "engines": {
-    "node": "16.x"
+    "node": "14.x"
   },
   "scripts": {
     "start": "node index.js",
@@ -16,6 +16,7 @@
   "dependencies": {
     "express": "^5.2.1",
     "json-server": "^0.17.4",
-    "json-server-auth": "^2.1.0"
+    "json-server-auth": "^2.1.0",
+    "jsonwebtoken": "^9.0.3"
   }
 }

@@ -1,17 +1,28 @@
 import express from "express";
-import pkg from "json-server";
-const { create, router, defaults } = pkg;
-import auth from "json-server-auth";
+import jwt from "jsonwebtoken";
+import { create, router, defaults } from "json-server";
 
-const app = create(); // json-server instance
-
+const app = create();
 const dbRouter = router("data/db.json");
-app.db = dbRouter.db;
 
 app.use(defaults());
-app.use(auth);
-app.use(dbRouter);
+app.use(express.json());
 
-app.listen(8000, () => {
-  console.log("Server running on http://localhost:8000");
+const SECRET = "mysecret";
+
+// login
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  const user = dbRouter.db
+    .get("users")
+    .find({ email, password })
+    .value();
+
+  if (!user) return res.status(401).json({ message: "Invalid credentials" });
+
+  const token = jwt.sign({ id: user.id }, SECRET);
+  res.json({ token });
 });
+
+// protect rou
